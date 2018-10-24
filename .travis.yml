@@ -1,17 +1,22 @@
 language: android   
+jdk: oraclejdk8
 
 notifications:      
   email: false
 
 sudo: false         
 
-android:            # 配置信息
+android:
   components:
-    - tools            
-    - android-23      
-    - build-tools-28.0.0    
-    - extra-android-m2repository     # Android Support Repository
-    - extra-android-support          # Support Library
+    # Update Android SDK Tools
+    - tools
 
-before_install:     
- - chmod +x gradlew  
+    - build-tools-23.0.1
+    - android-23
+
+    # Support library
+    - extra-android-support
+    - extra-android-m2repository
+    
+script:
+    - chmod +x ./gradlew
