@@ -1,0 +1,20 @@
+language: android   
+
+notifications:      
+  email: false
+
+sudo: false         # 开启基于容器的Travis CI任务，让编译效率更高。
+
+android:            # 配置信息
+  components:
+    - tools            
+    - android-23      
+    - build-tools-28.0.0    
+    - extra-android-m2repository     # Android Support Repository
+    - extra-android-support          # Support Library
+
+before_install:     
+ - chmod +x gradlew  
+
+script:              
+  - ./gradlew assembleRelease  
